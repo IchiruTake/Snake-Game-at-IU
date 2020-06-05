@@ -2,6 +2,5 @@
 If you use Linux or Unix or Android or iOS: search this site: https://www.sfml-dev.org/tutorials/2.5/
 2) Do exactly as video included said. If you use Visual Studio. Check this site: https://www.sfml-dev.org/tutorials/2.5/
 3) Unzip the file SFML-2.4.2 at C:\ (Only for Dev-C++ 5.11)
-4) Check the "Working Code" Folder and play the game at "Snake Game Project" (Type: Application)
-
-
+4) Unzip the file Images inside the "Working Code" folder
+5) Check the "Working Code" Folder and play the game at "Snake Game Project" (Type: Application)
