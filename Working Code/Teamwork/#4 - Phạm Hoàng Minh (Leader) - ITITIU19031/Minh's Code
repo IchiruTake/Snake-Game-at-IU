@@ -1510,6 +1510,11 @@ void GUI()
 		text3.setStyle(Text::Bold); 	text3.setPosition(15, 620);
 		window0.draw(text3);
 		
+		text4.setFont(font); 			text4.setString("SNAKE GAME");
+		text4.setCharacterSize(100); 	text4.setFillColor(Color::Blue);
+		text4.setStyle(Text::Bold); 	text4.setPosition(270, 100);
+		window0.draw(text4);
+		
 		window0.display();
 	}
 }
