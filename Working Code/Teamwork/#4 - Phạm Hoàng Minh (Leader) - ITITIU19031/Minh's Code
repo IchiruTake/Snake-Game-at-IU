@@ -1279,7 +1279,7 @@ void DoubleHard()
 			}
 			for (int i = 0; i < ObstacleNumber; i++) {	sprite0.setPosition( Obstacle[i].x*size, Obstacle[i].y*size); window.draw(sprite0); }  
 			ObstacleCount = 0; ObstacleDuration = ObstacleDuration + time;
-			if (ObstacleDuration > 20)	{ObstacleRealTime = 0; ObstacleDuration = 0; ObstacleCount = 1; ObstacleDelete(); } //20 seconds on and off
+			if (ObstacleDuration > 20)	{ObstacleRealTime = 0; ObstacleDuration = 0; ObstacleNumber = ObstacleNumber + 10; ObstacleCount = 1; ObstacleDelete(); } //20 seconds on and off
 		}
 	
 		//Print the text 
