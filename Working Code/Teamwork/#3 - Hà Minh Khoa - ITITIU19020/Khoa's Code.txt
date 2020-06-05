@@ -1,0 +1,247 @@
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <SFML/Window.hpp>
+
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
+#include <time.h>
+/* Tutorial: https://www.sfml-dev.org/tutorials/2.5/ */
+using namespace sf; using namespace std;
+
+int N = 60, M = 45; 		//The Array Matrix that contain Height = 20 blocks --- Width = 30 blocks
+int size = 16; 				//Square Pixel Width x Height (images included in nearby folder) --- Constant data 
+int w = size*N;				//Width (w) shows the number of pixel available (= size x N)
+int h = size*M;				//Height (h) shows the number of pixel available (= size x M)
+
+int dir, score = 0; 		//dir = Direction - Left = 1; Right = 2; Up = 3; Down = 0 
+int Snake_Length = 4; 		//Snake_Length = Length of the Snake 
+
+struct snake {int x, y;}  Snake[100]; 			//Make object named Snake with two data shows position (x, y) and set it as array
+struct obstacle {int x, y;} Obstacle[100]; 		//Make object named obstacle with two data shows position (x, y) and set it as array
+struct Fruit {int x, y;}  Food;		  			//Make object named Food with two data shows position (x, y)
+int Number_Of_Obstacle = 4;
+struct achievements {char name; int score;} Gamers[1000];
+int Load = 0;
+
+
+
+void Tick()
+{
+    //Snake Movement Algorithm for the whole body -- Starting from its tails
+	for (int i=Snake_Length; i > 0 ; --i)
+    {
+		Snake[i].x=Snake[i-1].x; 
+		Snake[i].y=Snake[i-1].y;
+	}
+	
+	// Snake Movement Algorithm for the head movement
+    if (dir==0) Snake[0].y+=1;      
+    if (dir==1) Snake[0].x-=1;        
+    if (dir==2) Snake[0].x+=1;         
+    if (dir==3) Snake[0].y-=1;   
+	
+	// If Snake eats Food
+    if ((Snake[0].x==Food.x) && (Snake[0].y==Food.y)) 
+    {
+		Snake_Length = Snake_Length + 1; 	//Increment the Snake's Length by 1
+		score = score + 5;
+		Food.x = rand() % N; 			 	//Set up new position for food at x-axis
+		Food.y = rand() % M;				//Set up new position for food at y-axis
+	}
+	
+	// If Snake overpass the wall -- Give him available at the other size (for Easy mode)
+    if (Snake[0].x> N - 1) Snake[0].x = 0;  if (Snake[0].x < 0) Snake[0].x = N - 1;
+    if (Snake[0].y> M - 1) Snake[0].y = 2;  if (Snake[0].y < 2) Snake[0].y = M - 1;
+	
+	/*for (i = 0; i < Number_Of_Obstacle; i++)
+	{
+		if (Snake[0].x = Obstacle[i].x && Snake[0].y = Obstacle[i].y) {window.clear; "you are dead",  Gamers[Load].score = score; Load = Load + 1; delay = 10000;		}
+	}
+	for ( i = 1; i < Snake_Length; i++)
+	{
+		if (Snake[0].x = Snake_Length.x && Snake[0].y = Snake_Length.y) {window.clear; "you are dead", Gamers[Load].score = score; Load = Load + 1; delay = 10000;		}
+	}*/
+	
+    
+	
+	
+	
+}
+
+int main()
+{  
+    srand(time(0)); //Seed the random 
+
+    RenderWindow window(VideoMode(w, h), "Snake Game!"); //MAIN WINDOW
+	RenderWindow window1(VideoMode(800, 400), "Score tracker! "); //Make another window for keep track of score and other option (SECONDARY WINDOW)
+	
+
+    Texture t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11; 		
+    t1.loadFromFile("images/background.png");			//texture for the background
+    t2.loadFromFile("images/apple.png");				//texture for the food
+	// the texture for the snake head, tail (with 4 direction) and body
+	t3.loadFromFile("images/head_left.png");			
+    t4.loadFromFile("images/tail_left.png");				
+    t5.loadFromFile("images/head_right.png");
+    t6.loadFromFile("images/tail_right.png");
+	t7.loadFromFile("images/head_up.png");
+    t8.loadFromFile("images/tail_up.png");
+	t9.loadFromFile("images/head_Down.png");			
+    t10.loadFromFile("images/tail_down.png");				  
+	t11.loadFromFile("images/body.png");
+    //////////////////////////////////
+    
+    
+    Sprite sprite1(t1);											
+    Sprite sprite2(t2);								
+	Sprite sprite3(t3);
+	Sprite sprite4(t4);
+	Sprite sprite5(t5);
+	Sprite sprite6(t6);
+	Sprite sprite7(t7);
+	Sprite sprite8(t8);
+	Sprite sprite9(t9);
+	Sprite sprite10(t10);
+	Sprite sprite11(t11);
+	
+    Clock clock; //Change name 'Clock' = clock
+	float timer = 0, delay = 0.1;	  //Count time by timer and set delay. Delay (s) will determined the speed of Snake. Small 'delay' variable causes the Snake moving faster, vice versa
+    float temp = delay;
+    int Real_Time_Count = 0;
+    Food.x = 10; Food.y = 10; //Initial position for the food (applicable once only)									
+    
+    
+    //This play the music file and loop it (i have merged 3 songs into one)
+    sf::Music music;
+	music.openFromFile("music.wav");
+	music.play();
+	music.setLoop(true);	//play the music file (format .wav), sfml CANNOT PLAY MP3, the loop it
+    
+    
+    while (window.isOpen()) //Running the file and keep open
+    {
+        float time = clock.getElapsedTime().asSeconds(); //Take the Elapsed Time value (s) and assign to 'time' variable
+        clock.restart();
+        timer = timer + time; // Increment the 'timer' by time 
+
+        Event e;	//Set the Event and name as e
+        
+        while (window.pollEvent(e)) //Doing event consequently
+        {
+            if (e.type == Event::Closed)      window.close(); //Close the window
+            if (e.type == Event::KeyPressed)
+            {
+				if (Keyboard::isKeyPressed(Keyboard::R)){music.play();Snake[0].x = 0; Snake[0].y = 2; score = 0; dir = 0;} //Replay the game and play the music from the beginnig
+				//Notice that if you want you can put the replay function available after the snake die
+				if (Keyboard::isKeyPressed(Keyboard::P)){music.pause();delay=10000;} //Pause the game, also pause the music
+				if (Keyboard::isKeyPressed(Keyboard::C)){music.play();delay=temp;}	//Continue the game and the music
+				if (Keyboard::isKeyPressed(Keyboard::S)){music.pause();}	//pause the music
+				if (Keyboard::isKeyPressed(Keyboard::M)){music.play();}		//continue playing music
+			}
+        }
+		
+        if (Keyboard::isKeyPressed(Keyboard::Left)) dir = 1;     //If pressing left, set dir = 1 and keeps 'dir' not keeps turning Left (keep the Snake move to the Left at the time press Left)
+        if (Keyboard::isKeyPressed(Keyboard::Right)) dir = 2;    //If pressing Right, set dir = 2 and keeps 'dir' not keeps turning Right (keep the Snake move to the Left at the time press Right)
+        if (Keyboard::isKeyPressed(Keyboard::Up)) dir = 3;	  	 //If pressing Up, set dir = 3 and keeps 'dir' not keeps turning Up (keep the Snake move to the Left at the time press Up)
+        if (Keyboard::isKeyPressed(Keyboard::Down)) dir = 0; 	 //If pressing Down, set dir = 0 and keeps 'dir' not keeps turning Down (keep the Snake move to the Left at the time press Down)
+		
+		if (Keyboard::isKeyPressed(Keyboard::P)) {delay = 10000;} //Pause button
+		if (Keyboard::isKeyPressed(Keyboard::C)) {delay = temp;}//continue game
+		
+		
+        if (timer > delay) {timer = 0; Real_Time_Count = Real_Time_Count + 1; Tick();} //When timer > delay, reconstruct the 'timer' variable to zero and do 'Tick' function where Snake can move
+		if (Real_Time_Count >= 300) {delay = 9* delay / 10; temp = delay; Real_Time_Count = 0;	} //Each 30s passed, the speed is increased
+		
+		
+   	// ----- DRAWING THE WINDOW ----//
+   	
+    window.clear(); //Clear the window
+    window1.clear();//Clear the window1
+	
+	Text text, text1, text2, text3; Font font;
+	//text is for the score in the MAIN WINDOW
+	//text1 is string "Your current score is: " in the SECONDARY WINDOW
+	//text2 is for the score in SECONDARY WINDOW (it has different position so i have to create another text for score in SECONDARY WINDOW
+	//text3 is string that infrom the player about the available function
+	
+	char scoreString[1000];
+	itoa(score, scoreString, 10);
+	font.loadFromFile("images/Times-New-Roman.ttf");
+	
+	//All the text have the same font, size and style. But not color, some is red, other is not.
+	text.setFont(font);
+	text1.setFont(font);
+	text2.setFont(font);
+	text3.setFont(font);
+	
+	text.setString(scoreString);
+	text1.setString("Your current score is: ");
+	text2.setString(scoreString);
+	text3.setString("Press R to replay the game\nPress P to pause the game\nPress C to continue playing\nPress S to stop the music\nPress M to keep the playing the music");
+	
+	text.setCharacterSize(32); 
+	text1.setCharacterSize(32);
+	text2.setCharacterSize(32);
+	text3.setCharacterSize(32);
+	
+	text.setFillColor(sf::Color::Red);
+	text1.setFillColor(sf::Color::White);
+	text2.setFillColor(sf::Color::Red);
+	text3.setFillColor(sf::Color::White);
+	
+	text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+	text1.setStyle(sf::Text::Regular);
+	text2.setStyle(sf::Text::Bold | sf::Text::Underlined);
+	text3.setStyle(sf::Text::Regular);
+	
+	text.setPosition(0, 0); 
+	text1.setPosition(0, 0);
+	text2.setPosition(290, 0);
+	text3.setPosition(0, 80);
+	
+	//display the text on the MAIN and SECONDARY WINDOW
+	window.draw(text);
+	window1.draw(text1);
+	window1.draw(text2);
+	window1.draw(text3);
+	
+    for (int i = 0; i < N; i++) 
+      for (int j = 0; j < M; j++) 
+        { sprite1.setPosition(i*size, (j+2)*size);  window.draw(sprite1); }
+
+    if (dir == 1) //Left movement for the snake head and tail
+    	{	
+			sprite3.setPosition(Snake[0].x*size, Snake[0].y*size);  window.draw(sprite3);
+			sprite4.setPosition(Snake[Snake_Length - 1].x*size, Snake[Snake_Length - 1].y*size);  window.draw(sprite4);
+		}
+	if (dir == 2) //Right movement for the snake head and tail
+    	{
+			sprite5.setPosition(Snake[0].x*size, Snake[0].y*size);  window.draw(sprite5);
+			sprite6.setPosition(Snake[Snake_Length - 1].x*size, Snake[Snake_Length - 1].y*size);  window.draw(sprite6);
+		}
+	if (dir == 3) //Up movement for the snake head and tail
+    	{
+			sprite7.setPosition(Snake[0].x*size, Snake[0].y*size);  window.draw(sprite7);
+			sprite8.setPosition(Snake[Snake_Length - 1].x*size, Snake[Snake_Length - 1].y*size);  window.draw(sprite8);
+		}
+	if (dir == 0) //Down movement for the snake head and tail
+    	{
+			sprite9.setPosition(Snake[0].x*size, Snake[0].y*size);  window.draw(sprite9);
+			sprite10.setPosition(Snake[Snake_Length - 1].x*size, Snake[Snake_Length - 1].y*size);  window.draw(sprite10);		
+		}
+	
+	for (int i = 1;i < Snake_Length - 1;i++) //Snake body
+        {sprite11.setPosition(Snake[i].x*size, Snake[i].y*size);  window.draw(sprite11);} 
+   	
+    
+	sprite2.setPosition(Food.x*size, Food.y*size);  window.draw(sprite2); //snake food  
+	
+	
+    window.display(); 	//display the first window
+    window1.display();	//display the second window
+    }
+
+    return 0;
+}
