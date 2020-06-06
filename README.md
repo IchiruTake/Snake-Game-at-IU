@@ -9,3 +9,9 @@ If you use Linux or Unix or Android or iOS: search this site: https://www.sfml-d
 5) Check the "Working Code" Folder and play the game at "Snake Game Project.exe" (Type: Application) 
 
 Reusuability, Easy with Loads of Comments, Four (04) GameMode
+
+Members:
+1.	Phạm Hoàng Minh - ITITIU19031 (Leader) (30%)
+2.	Trần Minh Quang - ITITIU19192 (70% / 3 ~ 23.33%)
+3.	Trương Nhật Minh Quang - ITITIU19194 (70% / 3 ~ 23.33%)
+4.	Hà Minh Khoa - ITITIU19020 (70% / 3 ~ 23.33%)
