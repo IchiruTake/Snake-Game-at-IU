@@ -12,7 +12,7 @@
 using namespace sf; using namespace std;
 //Snake's Map
 int Space = 4;
-int N = 75, M = 45; 		         		//The Snake's Map that contain Height = 60 blocks --- Width = 45 blocks
+int N = 75, M = 45; 		         		//The Snake's Map that contain Height = 45 blocks --- Width = 75 blocks
 int size = 16; 			     	     		//Square Pixel: Width x Height (images included in nearby folder) --- Constant data 
 int Width = size * N;				        //Width (w) shows the number of pixel available (= size x N)
 int Height = size * (M + Space);				//Height (h) shows the number of pixel available (= size x M)      
@@ -140,6 +140,7 @@ void Restart()
 	Snake_2[0].x = 1; Snake_2[0].y = Space; score_2 = 0; dir_2 = 0;
 	Food.x = (N - 1) / 2; Food.y = (M - 1 + Space) / 2;
 	ObstacleDelete(); ObstacleNumber = 10;  
+	MusicChoice = rand() % 6 + 1; MusicPlay();
 }
 
 void SingleEasy()
