@@ -68,11 +68,10 @@ void EasyMode ()
 	// If Snake eats Food
 	if ((Snake[0].x == Food.x) && (Snake[0].y == Food.y)) 
     {
-		if (FoodChoice == 1) {score = score + 2;}  		//Apple
-		if (FoodChoice == 2) {score = score + 5;}		//Melon
-		if (FoodChoice == 3) {score = score + 10;} 		//Strawberry
+		if (FoodChoice == 1) {score = score + 2;  Snake_Length = Snake_Length + 1; }  		//Apple, Increment the Snake's Length by 1
+		if (FoodChoice == 2) {score = score + 5;  Snake_Length = Snake_Length + 3; }		//Melon, Increment the Snake's Length by 3
+		if (FoodChoice == 3) {score = score + 10; Snake_Length = Snake_Length + 5; } 		//Strawberry, Increment the Snake's Length by 5
 		
-		Snake_Length = Snake_Length + 1; 		//Increment the Snake's Length by 1
 		Food.x = rand() % N; 			 		//Set up new position for food at x-axis
 		Food.y = rand() % M + Space;			//Set up new position for food at y-axis
 		// Setting the next food
@@ -101,11 +100,10 @@ void HardMode()
 	// If Snake eats Food
 	if ((Snake[0].x == Food.x) && (Snake[0].y == Food.y)) 
     {
-		if (FoodChoice == 1) {score = score + 2;}  		//Apple
-		if (FoodChoice == 2) {score = score + 5;}		//Melon
-		if (FoodChoice == 3) {score = score + 10;} 		//Strawberry
+		if (FoodChoice == 1) {score = score + 2;  Snake_Length = Snake_Length + 1; }  		//Apple, Increment the Snake's Length by 1
+		if (FoodChoice == 2) {score = score + 5;  Snake_Length = Snake_Length + 3; }		//Melon, Increment the Snake's Length by 3
+		if (FoodChoice == 3) {score = score + 10; Snake_Length = Snake_Length + 5; } 		//Strawberry, Increment the Snake's Length by 5
 		
-		Snake_Length = Snake_Length + 1; 		//Increment the Snake's Length by 1
 		Food.x = rand() % N; 			 		//Set up new position for food at x-axis
 		Food.y = rand() % M + Space;				//Set up new position for food at y-axis
 		// Setting the next food
@@ -135,8 +133,8 @@ void MusicPlay()
 
 void Restart() 	
 {
-	Snake[0].x = 0; Snake[0].y = Space; score = 0; dir = 0; 
-	Snake_2[0].x = 1; Snake_2[0].y = Space; score_2 = 0; dir_2 = 0;
+	Snake[0].x = 0; Snake[0].y = Space; score = 0; dir = 0; Snake_Length = 1;
+	Snake_2[0].x = 1; Snake_2[0].y = Space; score_2 = 0; dir_2 = 0; Snake_Length_2 = 1;
 	Food.x = (N - 1) / 2; Food.y = (M - 1 + Space) / 2;
 	ObstacleDelete(); ObstacleNumber = 10;  
 	MusicChoice = rand() % 6 + 1; MusicPlay();
@@ -1080,11 +1078,10 @@ void EasyMode_2 ()
 	// If Snake eats Food
 	if ((Snake_2[0].x == Food.x) && (Snake_2[0].y == Food.y)) 
     {
-		if (FoodChoice == 1) {score_2 = score_2 + 2;}  		//Apple
-		if (FoodChoice == 2) {score_2 = score_2 + 5;}		//Melon
-		if (FoodChoice == 3) {score_2 = score_2 + 10;} 		//Strawberry
+		if (FoodChoice == 1) {score_2 = score_2 + 2;  Snake_Length_2 = Snake_Length_2 + 1;}  		//Apple, Increment the Snake's Length by 1
+		if (FoodChoice == 2) {score_2 = score_2 + 5;  Snake_Length_2 = Snake_Length_2 + 3;}			//Melon, Increment the Snake's Length by 3
+		if (FoodChoice == 3) {score_2 = score_2 + 10; Snake_Length_2 = Snake_Length_2 + 5;} 		//Strawberry, Increment the Snake's Length by 5
 		
-		Snake_Length_2 = Snake_Length_2 + 1; 		//Increment the Snake's Length by 1
 		Food.x = rand() % N; 			 		//Set up new position for food at x-axis
 		Food.y = rand() % M + Space;			//Set up new position for food at y-axis
 		// Setting the next food
@@ -1113,11 +1110,10 @@ void HardMode_2()
 	// If Snake eats Food
 	if ((Snake_2[0].x == Food.x) && (Snake_2[0].y == Food.y)) 
     {
-		if (FoodChoice == 1) {score_2 = score_2 + 2;}  		//Apple
-		if (FoodChoice == 2) {score_2 = score_2 + 5;}		//Melon
-		if (FoodChoice == 3) {score_2 = score_2 + 10;} 		//Strawberry
+		if (FoodChoice == 1) {score_2 = score_2 + 2;  Snake_Length_2 = Snake_Length_2 + 1;}  		//Apple, Increment the Snake's Length by 1
+		if (FoodChoice == 2) {score_2 = score_2 + 5;  Snake_Length_2 = Snake_Length_2 + 3;}			//Melon, Increment the Snake's Length by 3
+		if (FoodChoice == 3) {score_2 = score_2 + 10; Snake_Length_2 = Snake_Length_2 + 5;} 		//Strawberry, Increment the Snake's Length by 5
 		
-		Snake_Length_2 = Snake_Length_2 + 1; 		//Increment the Snake's Length by 1
 		Food.x = rand() % N; 			 		//Set up new position for food at x-axis
 		Food.y = rand() % M + Space;			//Set up new position for food at y-axis
 		// Setting the next food
