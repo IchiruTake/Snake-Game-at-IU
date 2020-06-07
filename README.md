@@ -8,6 +8,7 @@ If you use Linux or Unix or Android or iOS: search this site: https://www.sfml-d
 4) Unzip the file "SFML-2.4.2.rar" at C:\ (Only for Dev-C++ 5.11)
 5) Unzip the file "Images.rar" inside the "Working Code" folder
 6) Check the "Working Code" Folder and play the game at "Snake Game Project.exe" (Type: Application) 
+7) If you want to have music, check the Music folder. Download all musics through the .txt file or contact this folder: https://drive.google.com/drive/folders/1cnD7A_dycdR-GxnMGGaqXqGRhh8m7lHP?usp=sharing
 
 Reusuability, Easy with Loads of Comments, Six (06) GameMode
 
@@ -16,6 +17,7 @@ If you want to play it (not edit the code) just:
 2) Unzip the file "SFML-2.4.2.rar" at C:\ 
 3) Unzip the file "Images.rar" inside the "Working Code" folder
 4) Check the "Working Code" Folder and play the game at "Snake Game Project.exe" (Type: Application) 
+5) If you want to have music, check the Music folder. Download all musics through the .txt file or contact this folder: https://drive.google.com/drive/folders/1cnD7A_dycdR-GxnMGGaqXqGRhh8m7lHP?usp=sharing
 
 Members:
 1.	Phạm Hoàng Minh - ITITIU19031 (Leader) (30%)
