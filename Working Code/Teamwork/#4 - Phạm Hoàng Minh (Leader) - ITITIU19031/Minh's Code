@@ -310,7 +310,7 @@ void SingleEasy()
 				}
 			}
 			FoodModeCount = 0; FoodModeDuration = FoodModeDuration + time; 
-			if (FoodModeDuration > 20)	
+			if (FoodModeDuration > 15)	
 			{
 				for (int i = 0; i < 150; i++)
 				{		
@@ -647,7 +647,7 @@ void SingleHard()
 				}
 			}
 			FoodModeCount = 0; FoodModeDuration = FoodModeDuration + time; 
-			if (FoodModeDuration > 20)	
+			if (FoodModeDuration > 15)	
 			{
 				for (int i = 0; i < 150; i++)
 				{		
@@ -996,7 +996,7 @@ void SingleBrutal()
 				}
 			}
 			FoodModeCount = 0; FoodModeDuration = FoodModeDuration + time; 
-			if (FoodModeDuration > 20)	
+			if (FoodModeDuration > 15)	
 			{
 				for (int i = 0; i < 150; i++)
 				{		
@@ -1453,7 +1453,7 @@ void DoubleEasy()
 				}
 			}
 			FoodModeCount = 0; FoodModeDuration = FoodModeDuration + time; 
-			if (FoodModeDuration > 20)	
+			if (FoodModeDuration > 15)	
 			{
 				for (int i = 0; i < 150; i++)
 				{		
@@ -1819,7 +1819,7 @@ void DoubleHard()
 				}
 			}
 			FoodModeCount = 0; FoodModeDuration = FoodModeDuration + time; 
-			if (FoodModeDuration > 20)	
+			if (FoodModeDuration > 15)	
 			{
 				for (int i = 0; i < 150; i++)
 				{		
@@ -2218,7 +2218,7 @@ void DoubleBrutal()
 				}
 			}
 			FoodModeCount = 0; FoodModeDuration = FoodModeDuration + time; 
-			if (FoodModeDuration > 20)	
+			if (FoodModeDuration > 15)	
 			{
 				for (int i = 0; i < 150; i++)
 				{		
