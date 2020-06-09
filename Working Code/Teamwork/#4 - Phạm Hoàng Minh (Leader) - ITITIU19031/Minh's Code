@@ -69,7 +69,7 @@ void EasyMode ()
 	if ((Snake[0].x == Food.x) && (Snake[0].y == Food.y)) 
     {
 		if (FoodChoice == 1) {score = score + 2;  Snake_Length = Snake_Length + 1; }  		//Apple, Increment the Snake's Length by 1
-		if (FoodChoice == 2) {score = score + 5;  Snake_Length = Snake_Length + 3; }		//Melon, Increment the Snake's Length by 3
+		if (FoodChoice == 2) {score = score + 6;  Snake_Length = Snake_Length + 3; }		//Melon, Increment the Snake's Length by 3
 		if (FoodChoice == 3) {score = score + 10; Snake_Length = Snake_Length + 5; } 		//Strawberry, Increment the Snake's Length by 5
 		
 		Food.x = rand() % N; 			 		//Set up new position for food at x-axis
@@ -101,7 +101,7 @@ void HardMode()
 	if ((Snake[0].x == Food.x) && (Snake[0].y == Food.y)) 
     {
 		if (FoodChoice == 1) {score = score + 2;  Snake_Length = Snake_Length + 1; }  		//Apple, Increment the Snake's Length by 1
-		if (FoodChoice == 2) {score = score + 5;  Snake_Length = Snake_Length + 3; }		//Melon, Increment the Snake's Length by 3
+		if (FoodChoice == 2) {score = score + 6;  Snake_Length = Snake_Length + 3; }		//Melon, Increment the Snake's Length by 3
 		if (FoodChoice == 3) {score = score + 10; Snake_Length = Snake_Length + 5; } 		//Strawberry, Increment the Snake's Length by 5
 		
 		Food.x = rand() % N; 			 		//Set up new position for food at x-axis
@@ -704,14 +704,6 @@ void SingleHard()
 				window.close();		
 			}
 		}  	
-		for (int i = 1; i < Snake_Length; i++) //Hiting the Snake
-    	{
-    		if ( (Snake[0].x == Snake[i].x) && (Snake[0].y == Snake[i].y) )
-    		{
-    			delay = 10000; Player[PlayerNumber].score = score;
-				window.close();		
-			}
-		}  
 		if ( (Snake[0].x > N - 1) or (Snake[0].x < 0) or (Snake[0].y > M - 1 + Space) or (Snake[0].y < Space)) //Hitting the Wall
 		{	delay = 10000; Player[PlayerNumber].score = score;	window.close();	 }	
     }
@@ -1190,7 +1182,7 @@ void EasyMode_2 ()
 	if ((Snake_2[0].x == Food.x) && (Snake_2[0].y == Food.y)) 
     {
 		if (FoodChoice == 1) {score_2 = score_2 + 2;  Snake_Length_2 = Snake_Length_2 + 1;}  		//Apple, Increment the Snake's Length by 1
-		if (FoodChoice == 2) {score_2 = score_2 + 5;  Snake_Length_2 = Snake_Length_2 + 3;}			//Melon, Increment the Snake's Length by 3
+		if (FoodChoice == 2) {score_2 = score_2 + 6;  Snake_Length_2 = Snake_Length_2 + 3;}			//Melon, Increment the Snake's Length by 3
 		if (FoodChoice == 3) {score_2 = score_2 + 10; Snake_Length_2 = Snake_Length_2 + 5;} 		//Strawberry, Increment the Snake's Length by 5
 		
 		Food.x = rand() % N; 			 		//Set up new position for food at x-axis
@@ -1222,7 +1214,7 @@ void HardMode_2()
 	if ((Snake_2[0].x == Food.x) && (Snake_2[0].y == Food.y)) 
     {
 		if (FoodChoice == 1) {score_2 = score_2 + 2;  Snake_Length_2 = Snake_Length_2 + 1;}  		//Apple, Increment the Snake's Length by 1
-		if (FoodChoice == 2) {score_2 = score_2 + 5;  Snake_Length_2 = Snake_Length_2 + 3;}			//Melon, Increment the Snake's Length by 3
+		if (FoodChoice == 2) {score_2 = score_2 + 6;  Snake_Length_2 = Snake_Length_2 + 3;}			//Melon, Increment the Snake's Length by 3
 		if (FoodChoice == 3) {score_2 = score_2 + 10; Snake_Length_2 = Snake_Length_2 + 5;} 		//Strawberry, Increment the Snake's Length by 5
 		
 		Food.x = rand() % N; 			 		//Set up new position for food at x-axis
@@ -1890,24 +1882,16 @@ void DoubleHard()
 		} 	
 		for (int i = 1; i < Snake_Length; i++) 
     	{
-    		if ( (Snake[0].x == Snake[i].x) && (Snake[0].y == Snake[i].y) ) 	//Hiting the Snake #1 himself
-    		{
-    			delay = 10000; Player[PlayerNumber].score = score; Player_2[PlayerNumber].score = score;
-				window.close();		
-			}
+    		//Hiting the Snake #1 himself
 			if ( (Snake_2[0].x == Snake[i].x) && (Snake_2[0].y == Snake[i].y) )
 			{
 				delay = 10000; Player[PlayerNumber].score = score; Player_2[PlayerNumber].score = score;
 				window.close();
 			}
 		}
-		for (int i = 1; i < Snake_Length_2; i++) //Hiting the Snake #2 himself
+		for (int i = 1; i < Snake_Length_2; i++) 
     	{
-    		if ( (Snake_2[0].x == Snake_2[i].x) && (Snake_2[0].y == Snake_2[i].y) )
-    		{
-    			delay = 10000; Player[PlayerNumber].score = score; Player_2[PlayerNumber].score = score;
-				window.close();		
-			}
+    		//Hiting the Snake #2 himself
 			if ( (Snake[0].x == Snake_2[i].x) && (Snake[0].y == Snake_2[i].y) )
 			{
 				delay = 10000; Player[PlayerNumber].score = score; Player_2[PlayerNumber].score = score;
