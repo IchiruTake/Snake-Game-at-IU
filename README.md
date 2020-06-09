@@ -24,3 +24,5 @@ Members:
 2.	Trần Minh Quang - ITITIU19192 (70% / 3 ~ 23.33%)
 3.	Trương Nhật Minh Quang - ITITIU19194 (70% / 3 ~ 23.33%)
 4.	Hà Minh Khoa - ITITIU19020 (70% / 3 ~ 23.33%)
+
+Reports and Presentation included
