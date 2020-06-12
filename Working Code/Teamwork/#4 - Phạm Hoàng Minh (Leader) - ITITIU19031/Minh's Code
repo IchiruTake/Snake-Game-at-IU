@@ -137,7 +137,7 @@ void Restart()
 	Snake_2[0].x = 1; Snake_2[0].y = Space; score_2 = 0; dir_2 = 0; Snake_Length_2 = 1;
 	Food.x = (N - 1) / 2; Food.y = (M - 1 + Space) / 2;
 	ObstacleDelete(); ObstacleNumber = 10;  
-	MusicChoice = rand() % 6 + 1; MusicPlay();
+	MusicChoice = rand() % 6 + 1; MusicPlay(); RealTime = 0.0;
 }
 
 void SingleEasy()
