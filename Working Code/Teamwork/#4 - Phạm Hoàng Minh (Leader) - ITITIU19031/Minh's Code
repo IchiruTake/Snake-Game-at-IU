@@ -285,8 +285,10 @@ void SingleEasy()
 			if (ObstacleDuration > 20)	{ObstacleRealTime = 0; ObstacleDuration = 0; ObstacleCount = 1; ObstacleDelete(); ObstacleNumber = ObstacleNumber + 10;} //20 seconds on and off
 		}
 		// --- Create Bonus Points ---
+		Text text30; Font font1; font1.loadFromFile("Images/Times-New-Romans.ttf");
 		if (FoodModeRealTime > 75)
 		{
+			text30.setString("BONUS TIME - DEATHLY TIME");	
 			if (FoodModeCount == 1)
 			{
 				for (int i = 0; i < 150; i++)
@@ -318,11 +320,16 @@ void SingleEasy()
 					sprite100.setPosition(FoodMode[i].x * size, FoodMode[i].y * size); window.draw(sprite100);
 				}
 				FoodModeRealTime = 0; FoodModeDuration = 0; FoodModeCount = 1; 
+				text30.setString("");
 			}
+			text30.setFont(font1); 
+			text30.setCharacterSize(24); 	text30.setFillColor(Color::Red);
+			text30.setStyle(Text::Bold); 	text30.setPosition(820, 4); 
+			window.draw(text30);
 		}	
 	
 		//Print the text 
-		Text text0, text1, text2, text3, text6, text8; font.loadFromFile("Images/Times-New-Romans.ttf");
+		Text text0, text1, text2, text3, text6, text8, text9; font.loadFromFile("Images/Times-New-Romans.ttf");
 	
 		text0.setFont(font); 			text0.setString("Score:");
 		text0.setCharacterSize(16); 	text0.setFillColor(Color::White);
@@ -356,6 +363,16 @@ void SingleEasy()
 		text7.setStyle(Text::Bold); 	text7.setPosition(265, 44); 
 		window.draw(text7);
 	
+		text8.setFont(font); 			text8.setString("Time Played (s): ");
+		text8.setCharacterSize(24); 	text8.setFillColor(Color::Red);
+		text8.setStyle(Text::Bold); 	text8.setPosition(900, 30); 
+		window.draw(text8);
+		char TimePlayed[10000]; 		itoa(RealTime, TimePlayed, 10); 			//convert 'RealTime' (Time Played) from char to string
+		text9.setFont(font); 			text9.setString(TimePlayed);
+		text9.setCharacterSize(24); 	text9.setFillColor(Color::White);
+		text9.setStyle(Text::Bold); 	text9.setPosition(1090, 30); 
+		window.draw(text9);
+		
     	window.display(); // Show the screen
     	
     	//Dead if violating
@@ -622,8 +639,10 @@ void SingleHard()
 			if (ObstacleDuration > 30)	{ObstacleRealTime = 0; ObstacleDuration = 0; ObstacleCount = 1; ObstacleDelete(); ObstacleNumber = ObstacleNumber + 30; } //30 seconds on and off
 		}
 		// --- Create Bonus Points ---
+		Text text30; Font font1; font1.loadFromFile("Images/Times-New-Romans.ttf");
 		if (FoodModeRealTime > 75)
 		{
+			text30.setString("BONUS TIME - DEATHLY TIME");	
 			if (FoodModeCount == 1)
 			{
 				for (int i = 0; i < 150; i++)
@@ -655,11 +674,16 @@ void SingleHard()
 					sprite100.setPosition(FoodMode[i].x * size, FoodMode[i].y * size); window.draw(sprite100);
 				}
 				FoodModeRealTime = 0; FoodModeDuration = 0; FoodModeCount = 1; 
+				text30.setString("");
 			}
-		}
-	
+			text30.setFont(font1); 
+			text30.setCharacterSize(24); 	text30.setFillColor(Color::Red);
+			text30.setStyle(Text::Bold); 	text30.setPosition(820, 4); 
+			window.draw(text30);
+		}	
+		
 		//Print the text 
-		Text text0, text1, text2, text3, text6, text8; font.loadFromFile("Images/Times-New-Romans.ttf");
+		Text text0, text1, text2, text3, text6, text8, text9; font.loadFromFile("Images/Times-New-Romans.ttf");
 	
 		text0.setFont(font); 			text0.setString("Score:");
 		text0.setCharacterSize(16); 	text0.setFillColor(Color::White);
@@ -693,6 +717,16 @@ void SingleHard()
 		text7.setStyle(Text::Bold); 	text7.setPosition(265, 44); 
 		window.draw(text7);
 	
+		text8.setFont(font); 			text8.setString("Time Played (s): ");
+		text8.setCharacterSize(24); 	text8.setFillColor(Color::Red);
+		text8.setStyle(Text::Bold); 	text8.setPosition(900, 30); 
+		window.draw(text8);
+		char TimePlayed[10000]; 		itoa(RealTime, TimePlayed, 10); 			//convert 'RealTime' (Time Played) from char to string
+		text9.setFont(font); 			text9.setString(TimePlayed);
+		text9.setCharacterSize(24); 	text9.setFillColor(Color::White);
+		text9.setStyle(Text::Bold); 	text9.setPosition(1090, 30); 
+		window.draw(text9);
+		
     	window.display(); // Show the screen
     	
     	//Dead if violating
@@ -963,8 +997,10 @@ void SingleBrutal()
 			if (ObstacleDuration > 45)	{ObstacleRealTime = 0; ObstacleDuration = 0; ObstacleCount = 1; ObstacleDelete(); ObstacleNumber = ObstacleNumber * 1.75;} //45 seconds on and off
 		}
 		// --- Create Bonus Points ---
+		Text text30; Font font1; font1.loadFromFile("Images/Times-New-Romans.ttf");
 		if (FoodModeRealTime > 75)
 		{
+			text30.setString("BONUS TIME - DEATHLY TIME");	
 			if (FoodModeCount == 1)
 			{
 				for (int i = 0; i < 150; i++)
@@ -996,11 +1032,16 @@ void SingleBrutal()
 					sprite100.setPosition(FoodMode[i].x * size, FoodMode[i].y * size); window.draw(sprite100);
 				}
 				FoodModeRealTime = 0; FoodModeDuration = 0; FoodModeCount = 1; 
+				text30.setString("");
 			}
-		}
+			text30.setFont(font1); 
+			text30.setCharacterSize(24); 	text30.setFillColor(Color::Red);
+			text30.setStyle(Text::Bold); 	text30.setPosition(820, 4); 
+			window.draw(text30);
+		}	
 		
 		//Print the text 
-		Text text0, text1, text2, text3, text6, text8; font.loadFromFile("Images/Times-New-Romans.ttf");
+		Text text0, text1, text2, text3, text6, text8, text9; font.loadFromFile("Images/Times-New-Romans.ttf");
 	
 		text0.setFont(font); 			text0.setString("Score:");
 		text0.setCharacterSize(16); 	text0.setFillColor(Color::White);
@@ -1034,6 +1075,16 @@ void SingleBrutal()
 		text7.setStyle(Text::Bold); 	text7.setPosition(280, 44); 
 		window.draw(text7);
 	
+		text8.setFont(font); 			text8.setString("Time Played (s): ");
+		text8.setCharacterSize(24); 	text8.setFillColor(Color::Red);
+		text8.setStyle(Text::Bold); 	text8.setPosition(900, 30); 
+		window.draw(text8);
+		char TimePlayed[10000]; 		itoa(RealTime, TimePlayed, 10); 			//convert 'RealTime' (Time Played) from char to string
+		text9.setFont(font); 			text9.setString(TimePlayed);
+		text9.setCharacterSize(24); 	text9.setFillColor(Color::White);
+		text9.setStyle(Text::Bold); 	text9.setPosition(1090, 30); 
+		window.draw(text9);
+		
     	window.display(); // Show the screen
     	
     	//Dead if violating
@@ -1413,8 +1464,10 @@ void DoubleEasy()
 			if (ObstacleDuration > 20)	{ObstacleRealTime = 0; ObstacleDuration = 0; ObstacleCount = 1; ObstacleDelete(); ObstacleNumber = ObstacleNumber + 10;} //20 seconds on and off
 		}
 		// --- Create Bonus Points ---
+		Text text30; Font font1; font1.loadFromFile("Images/Times-New-Romans.ttf");	
 		if (FoodModeRealTime > 75)
 		{
+			text30.setString("BONUS TIME - DEATHLY TIME");
 			if (FoodModeCount == 1)
 			{
 				for (int i = 0; i < 150; i++)
@@ -1453,11 +1506,16 @@ void DoubleEasy()
 					sprite100.setPosition(FoodMode[i].x * size, FoodMode[i].y * size); window.draw(sprite100);
 				}
 				FoodModeRealTime = 0; FoodModeDuration = 0; FoodModeCount = 1; 
+				text30.setString("");
 			}
+			text30.setFont(font1); 
+			text30.setCharacterSize(24); 	text30.setFillColor(Color::Red);
+			text30.setStyle(Text::Bold); 	text30.setPosition(820, 4); 
+			window.draw(text30);
 		}
 		
 		//Print the text 
-		Text text0, text1, text2, text3, text6, text8; font.loadFromFile("Images/Times-New-Romans.ttf");
+		Text text0, text1, text2, text3, text6, text8, text9; font.loadFromFile("Images/Times-New-Romans.ttf");
 	
 		text0.setFont(font); 			text0.setString("Score:");
 		text0.setCharacterSize(16); 	text0.setFillColor(Color::White);
@@ -1498,6 +1556,16 @@ void DoubleEasy()
 		text7.setStyle(Text::Bold); 	text7.setPosition(270, 44); 
 		window.draw(text7);
 	
+		text8.setFont(font); 			text8.setString("Time Played (s): ");
+		text8.setCharacterSize(24); 	text8.setFillColor(Color::Red);
+		text8.setStyle(Text::Bold); 	text8.setPosition(900, 30); 
+		window.draw(text8);
+		char TimePlayed[10000]; 		itoa(RealTime, TimePlayed, 10); 			//convert 'RealTime' (Time Played) from char to string
+		text9.setFont(font); 			text9.setString(TimePlayed);
+		text9.setCharacterSize(24); 	text9.setFillColor(Color::White);
+		text9.setStyle(Text::Bold); 	text9.setPosition(1090, 30); 
+		window.draw(text9);
+		
     	window.display(); // Show the screen
     	
     	//Dead if violating
@@ -1779,8 +1847,10 @@ void DoubleHard()
 			if (ObstacleDuration > 30)	{ObstacleRealTime = 0; ObstacleDuration = 0; ObstacleCount = 1; ObstacleDelete(); ObstacleNumber = ObstacleNumber + 30; } //30 seconds on and off
 		}
 		// --- Create Bonus Points ---
+		Text text30; Font font1; font1.loadFromFile("Images/Times-New-Romans.ttf");	
 		if (FoodModeRealTime > 75)
 		{
+			text30.setString("BONUS TIME - DEATHLY TIME");
 			if (FoodModeCount == 1)
 			{
 				for (int i = 0; i < 150; i++)
@@ -1819,11 +1889,16 @@ void DoubleHard()
 					sprite100.setPosition(FoodMode[i].x * size, FoodMode[i].y * size); window.draw(sprite100);
 				}
 				FoodModeRealTime = 0; FoodModeDuration = 0; FoodModeCount = 1; 
+				text30.setString("");
 			}
+			text30.setFont(font1); 
+			text30.setCharacterSize(24); 	text30.setFillColor(Color::Red);
+			text30.setStyle(Text::Bold); 	text30.setPosition(820, 4); 
+			window.draw(text30);
 		}
 		
 		//Print the text 
-		Text text0, text1, text2, text3, text6, text8; font.loadFromFile("Images/Times-New-Romans.ttf");
+		Text text0, text1, text2, text3, text6, text8, text9; font.loadFromFile("Images/Times-New-Romans.ttf");
 	
 		text0.setFont(font); 			text0.setString("Score:");
 		text0.setCharacterSize(16); 	text0.setFillColor(Color::White);
@@ -1864,6 +1939,16 @@ void DoubleHard()
 		text7.setStyle(Text::Bold); 	text7.setPosition(270, 44); 
 		window.draw(text7);
 	
+		text8.setFont(font); 			text8.setString("Time Played (s): ");
+		text8.setCharacterSize(24); 	text8.setFillColor(Color::Red);
+		text8.setStyle(Text::Bold); 	text8.setPosition(900, 30); 
+		window.draw(text8);
+		char TimePlayed[10000]; 		itoa(RealTime, TimePlayed, 10); 			//convert 'RealTime' (Time Played) from char to string
+		text9.setFont(font); 			text9.setString(TimePlayed);
+		text9.setCharacterSize(24); 	text9.setFillColor(Color::White);
+		text9.setStyle(Text::Bold); 	text9.setPosition(1090, 30); 
+		window.draw(text9);
+		
     	window.display(); // Show the screen
     	
     	//Dead if violating
@@ -2170,8 +2255,10 @@ void DoubleBrutal()
 			if (ObstacleDuration > 45)	{ObstacleRealTime = 0; ObstacleDuration = 0; ObstacleCount = 1; ObstacleDelete(); ObstacleNumber = ObstacleNumber * 1.75; } //20 seconds on and off
 		}
 		// --- Create Bonus Points ---
+		Text text30; Font font1; font1.loadFromFile("Images/Times-New-Romans.ttf");	
 		if (FoodModeRealTime > 75)
 		{
+			text30.setString("BONUS TIME - DEATHLY TIME");
 			if (FoodModeCount == 1)
 			{
 				for (int i = 0; i < 150; i++)
@@ -2210,11 +2297,16 @@ void DoubleBrutal()
 					sprite100.setPosition(FoodMode[i].x * size, FoodMode[i].y * size); window.draw(sprite100);
 				}
 				FoodModeRealTime = 0; FoodModeDuration = 0; FoodModeCount = 1; 
+				text30.setString("");
 			}
+			text30.setFont(font1); 
+			text30.setCharacterSize(24); 	text30.setFillColor(Color::Red);
+			text30.setStyle(Text::Bold); 	text30.setPosition(820, 4); 
+			window.draw(text30);
 		}
 				
 		//Print the text 
-		Text text0, text1, text2, text3, text6, text8; font.loadFromFile("Images/Times-New-Romans.ttf");
+		Text text0, text1, text2, text3, text6, text8, text9; font.loadFromFile("Images/Times-New-Romans.ttf");
 	
 		text0.setFont(font); 			text0.setString("Score:");
 		text0.setCharacterSize(16); 	text0.setFillColor(Color::White);
@@ -2255,6 +2347,16 @@ void DoubleBrutal()
 		text7.setStyle(Text::Bold); 	text7.setPosition(280, 44); 
 		window.draw(text7);
 	
+		text8.setFont(font); 			text8.setString("Time Played (s): ");
+		text8.setCharacterSize(24); 	text8.setFillColor(Color::Red);
+		text8.setStyle(Text::Bold); 	text8.setPosition(900, 30); 
+		window.draw(text8);
+		char TimePlayed[10000]; 		itoa(RealTime, TimePlayed, 10); 			//convert 'RealTime' (Time Played) from char to string
+		text9.setFont(font); 			text9.setString(TimePlayed);
+		text9.setCharacterSize(24); 	text9.setFillColor(Color::White);
+		text9.setStyle(Text::Bold); 	text9.setPosition(1090, 30); 
+		window.draw(text9);
+		
     	window.display(); // Show the screen
     	
     	//Dead if violating
